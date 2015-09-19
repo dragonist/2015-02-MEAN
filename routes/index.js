@@ -4,11 +4,12 @@ var mongoose = require('mongoose');
 var model = require('../model/models.js');
 var path = require('path');
 
-var url = 'mongodb://localhost:27017/blog';
+var url1 = 'mongodb://localhost:27018/blog';
+var url2 = 'mongodb://localhost:27019/blog';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	mongoose.connect(url, function (err) {
+	mongoose.connect(url2, function (err) {
 		if (err) {console.log(err)};
 		model.post.find({}, function (err, data) {
 	  		res.render('index', { title: 'Express', posts: data});
@@ -22,7 +23,7 @@ router.get('/post/create', function (req, res) {
 });
 
 router.post('/post/create', function (req, res) {
-	mongoose.connect(url, function (err) {
+	mongoose.connect(url1, function (err) {
 		if (err) {console.log(err)};
 		// req.body.author = "erinlee";
 		console.log(req.cookies);
@@ -48,7 +49,7 @@ router.post('/post/create', function (req, res) {
 
 router.get('/post/:id', function(req, res, next) {
 	// console.log("hello");
-	mongoose.connect(url, function (err) {
+	mongoose.connect(url2, function (err) {
 		if (err) {console.log(err)};
 		console.log(req.params.id);
 		model.post.findOne({
@@ -66,7 +67,7 @@ router.get('/post/:id', function(req, res, next) {
 });
 
 router.post('/comment/:id', function (req, res) {
-	mongoose.connect(url, function (err) {
+	mongoose.connect(url1, function (err) {
 		if (err) {console.log(err)};
 		// content: String,
 		// author: String,

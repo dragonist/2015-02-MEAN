@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var model = require('../model/models.js');
 var path = require('path');
 
-var url = 'mongodb://localhost:27017/blog';
+var url = 'mongodb://localhost:27018/blog';
 
 
 /* GET users listing. */
