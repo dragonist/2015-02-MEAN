@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hello</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <div id="post_container">
+    	<%=post%>
+    </div>
+
+    <ul>
+    	<% for(var i=0; i<comments.length; i++) {%>
+			<li>
+				<%= comments[i]%>
+			</li>
+    	<% } %>
+    	
+    </ul>
+    <form action="/comment/<%=post._id%>" method="post">
+    	<input type="text" value="첫글" name="title">
+    	<input type="text" value="123412312312312312312313123123123" name="content">
+    	<input type="submit" >
+    </form>
+  </body>
+</html>
