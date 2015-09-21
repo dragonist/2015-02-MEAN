@@ -4,14 +4,16 @@ var mongoose = require('mongoose');
 var model = require('../model/models.js');
 var path = require('path');
 
-var url = 'mongodb://localhost:27017/blog';
+var url = 'mongodb://localhost:27001/blog';
+var url2 = 'mongodb://localhost:27002/blog';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	mongoose.connect(url, function (err) {
+	mongoose.connect(url2, function (err) {
 		if (err) {console.log(err)};
 		model.post.find({}, function (err, data) {
 	  		res.render('index', { title: 'Express', posts: data});
+			mongoose.disconnect();
 		});
 	})
 });

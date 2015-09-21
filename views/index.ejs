@@ -7,7 +7,9 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    
+    <a href="/login.html">로그인</a>
+    <a href="/register.html">회원가입</a> 
+    <a href="/post/create">포스트 작성하기</a>
     <ul>
     	<% for(var i=0; i<posts.length; i++) {%>
 			<li><a href="/post/<%=posts[i]._id%>">
