@@ -50,7 +50,7 @@ router.post('/post/create', function (req, res) {
 
 router.get('/post/:id', function(req, res, next) {
 	// console.log("hello");
-	mongoose.connect(url, function (err) {
+	mongoose.connect(url2, function (err) {
 		if (err) {console.log(err)};
 		console.log(req.params.id);
 		model.post.findOne({
@@ -61,6 +61,7 @@ router.get('/post/:id', function(req, res, next) {
 				post_id: data._id
 			}, function (err, data) {
 	  			res.render('post', { post: post, comments: data});
+				mongoose.disconnect();
 			})
 		});
 	})
